@@ -1,7 +1,7 @@
 output "lambda_bucket_name" {
   description = "S3 bucket name"
 
-  value = aws_s3_bucket.lambda_bucket.id
+  value = aws_s3_bucket.bucket.id
 }
 #lambda
 output "function_name" {

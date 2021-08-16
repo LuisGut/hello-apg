@@ -51,13 +51,13 @@ resource "aws_s3_bucket_object" "helloworld" {
 resource "aws_lambda_function" "helloworld" {
   function_name = "HelloWorld"
 
-  s3_bucket = aws_s3_bucket.lambda_bucket.id
-  s3_key    = aws_s3_bucket_object.lambda_helloworld.key
+  s3_bucket = aws_s3_bucket.bucket.id
+  s3_key    = aws_s3_bucket_object.helloworld.key
 
   runtime = "nodejs12.x"
   handler = "hello.handler"
 
-  source_code_hash = data.archive_file.lambda_helloworld.output_base64sha256
+  source_code_hash = data.archive_file.helloworld.output_base64sha256
 
   role = aws_iam_role.lambda-apg.arn
 }
