@@ -40,7 +40,7 @@ data "archive_file" "helloworld" {
 }
 
 resource "aws_s3_bucket_object" "helloworld" {
-  bucket = aws_s3_bucket.bucket.id
+  bucket = aws_s3_bucket.bucket-mb.id
 
   key    = "helloworld.zip"
   source = data.archive_file.helloworld.output_path
