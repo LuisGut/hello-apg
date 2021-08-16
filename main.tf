@@ -21,13 +21,8 @@ provider "aws" {
   region = var.aws_region
 }
 
-resource "random_pet" "bucket_name" {
-  prefix = "challenge_bmusic"
-  length = 3
-}
-
 resource "aws_s3_bucket" "bucket-mb" {
-  bucket = random_pet.bucket_name.id
+  bucket = "mb-test-bucket"
   acl           = "private"
   force_destroy = true
 }
