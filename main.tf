@@ -26,7 +26,7 @@ resource "random_pet" "bucket_name" {
   length = 3
 }
 
-resource "aws_s3_bucket" "bucket" {
+resource "aws_s3_bucket" "bucket-mb" {
   bucket = random_pet.bucket_name.id
   acl           = "private"
   force_destroy = true
@@ -51,7 +51,7 @@ resource "aws_s3_bucket_object" "helloworld" {
 resource "aws_lambda_function" "helloworld" {
   function_name = "HelloWorld"
 
-  s3_bucket = aws_s3_bucket.bucket.id
+  s3_bucket = aws_s3_bucket.bucket-mb.id
   s3_key    = aws_s3_bucket_object.helloworld.key
 
   runtime = "nodejs12.x"
