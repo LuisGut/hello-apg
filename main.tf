@@ -22,7 +22,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "bucket-mb" {
-  bucket = "mb-test-bucket"
+  bucket = "mb-challenge-2"
   acl           = "private"
   force_destroy = true
 }
